@@ -95,7 +95,8 @@ Order another Robot
     Click Button    order-another
 
 Archive output PDFs
-    ${zip_file_name}=    Set Variable    ${OUTPUT_DIR}${/}PDFs.zip
+    # ${zip_file_name}=    Set Variable    ${OUTPUT_DIR}${/}PDFs.zip
+	${zip_file_name}=    PDFs.zip
     Archive Folder With Zip
     ...    ${PDF_TEMP_OUTPUT_DIRECTORY}
     ...    ${zip_file_name}
