@@ -12,6 +12,7 @@ Library             RPA.Tables.Tables
 Library             RPA.PDF
 Library             RPA.Archive
 Library             RPA.FileSystem
+Library             RPA.Robocorp.WorkItems
 
 
 *** Variables ***
@@ -95,7 +96,9 @@ Order another Robot
     Click Button    order-another
 
 Archive output PDFs
-    ${zip_file_name}=    PDFs.zip
+    ${zip_file_name}=    Set Variable    ${OUTPUT_DIR}${/}PDFs.zip
     Archive Folder With Zip
     ...    ${PDF_TEMP_OUTPUT_DIRECTORY}
     ...    ${zip_file_name}
+    Add work item file    ${zip_file_name}
+    Save Work Item
